@@ -92,6 +92,5 @@ async def fecha(ctx):
 async def repetir(ctx, *, mensaje: str):
     await ctx.send(mensaje)
 
-
 # Inicia el bot (coloca tu token aquí)
-bot.run("Token")
+bot.run("Escribe aqui tu token")
