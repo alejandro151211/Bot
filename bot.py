@@ -27,7 +27,7 @@ async def adios(ctx):
 
 @bot.command()
 async def comandos(ctx):
-    await ctx.send("Los comandos son: #hola, #adios, #contraseña, #chiste1, #chiste2, #chiste3, #chiste4, #chiste5, #fecha, #repetir (despues del repetir tienes que poner lo que quieras que el bot repita), #juego, #comandos (que lo acabas de usar). Se seguiran añadiendo mas comandos por que ahora mismo este bot esta en una fase beta.")
+    await ctx.send("Los comandos son: #hola, #adios, #contraseña, #chiste, #fecha, #repetir (despues del repetir tienes que poner lo que quieras que el bot repita), #juego, #comandos (que lo acabas de usar). Se seguiran añadiendo mas comandos por que ahora mismo este bot esta en una fase beta.")
 
 # Comando: Generar contraseña aleatoria
 @bot.command()
@@ -39,25 +39,29 @@ async def contraseña(ctx):
     # Envía el mensaje con la contraseña generada
     await ctx.send(f"🔐 Tu contraseña generada es: `{contraseña}`")
 
-@bot.command()
-async def chiste1(ctx):
-    await ctx.send("¿Qué le dice una taza a otra? - ¿Qué taza ciendo?")
+chistes = [
+    "¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter. ",
+    "—¡Camarero! Este filete tiene muchos nervios.\n—Normal, es la primera vez que se lo comen. ",
+    "¿Cómo se despiden los químicos? ¡Ácido un placer! ",
+    "¿Qué hace una abeja en el gimnasio? ¡Zum-ba! ",
+    "¿Por qué el libro de matemáticas estaba triste? Porque tenía muchos problemas. ",
+    "¿Qué le dice un semáforo a otro? ¡No me mires, me estoy cambiando! ",
+    "¿Cómo se dice pelo sucio en chino? Chin cham pu. ",
+    "—Doctor, me siento invisible.—¿Quién sigue? ",
+    "¿Qué pasa si tiras un pato al agua? ¡Nada! ",
+    "¿Por qué las bicicletas no pueden mantenerse de pie? Porque están dos-tadas. ",
+    "¿Qué le dice una taza a otra? - ¿Qué taza ciendo?",
+    "¿Como se dice 99 en chino? - Cachi cien",
+    "Las ovejas al jugar futbol. Una de ellas lanza muy lejos el balón. Y le dice a otra oveja: Veeeeeeeee!!!! y la otra le dice no, Veeeeeeeeeee tu",
+    "¿Como se dice repollo en ingles? Rechiken"
+
+
+]
 
 @bot.command()
-async def chiste2(ctx):
-    await ctx.send("¿Como se dice 99 en chino? - Cachi cien")
-
-@bot.command()
-async def chiste3(ctx):
-    await ctx.send("Las ovejas al jugar futbol. Una de ellas lanza muy lejos el balón. Y le dice a otra oveja: Veeeeeeeee!!!! y la otra le dice no, Veeeeeeeeeee tu")
-
-@bot.command()
-async def chiste4(ctx):
-    await ctx.send("¿Como se dice repollo en ingles? Rechiken")
-
-@bot.command()
-async def chiste5(ctx):
-    await ctx.send("¿Qué le dice una taza a otra? - ¿Qué taza ciendo?")
+async def chiste(ctx):
+    chiste_aleatorio = random.choice(chistes)  # Selecciona un chiste al azar
+    await ctx.send(chiste_aleatorio)
 
 @bot.command()
 async def gato(ctx):
